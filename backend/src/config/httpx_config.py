@@ -8,10 +8,10 @@ async def init_httpx_client():
     """
     client = httpx.AsyncClient(
         timeout=httpx.Timeout(
-            connect=3.0,    # 建连
-            read=60.0,      # 等模型吐 token
-            write=10.0,     # 发请求体
-            pool=5.0        # 等连接池
+            connect=3.0,    # Connect timeout
+            read=60.0,      # Waiting for response timeout
+            write=10.0,     # Writing request timeout
+            pool=5.0        # Waiting for a connection from the pool timeout
         )
     )
     global_vars.set_value("HTTPX_CLIENT", client)
